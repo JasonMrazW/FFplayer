@@ -57,7 +57,7 @@ int SDLActivity::initSDL()
     //3. create window
     int screen_width = width;
     int screen_height = height;
-    window = SDL_CreateWindow("bo player", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, screen_width, screen_height, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("bo player", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, screen_width*2, screen_height, SDL_WINDOW_SHOWN);
     if (window == NULL) {
         printf("create window failed.");
         return FAIL;
@@ -72,6 +72,12 @@ int SDLActivity::initSDL()
     rect.y = 0;
     rect.h = screen_height;
     rect.w = screen_width;
+    
+    rect2 = SDL_Rect();
+    rect2.x = screen_width;
+    rect2.y = 0;
+    rect2.h = screen_height;
+    rect2.w = screen_width;
     
     return OK;
 }
@@ -95,7 +101,6 @@ void SDLActivity::OnEvent(SDL_Event *event)
 //update logic
 void SDLActivity::onUpdate(uint8_t *data[], int* linesize)
 {
-    SDL_UpdateTexture(texture, NULL, data[0], linesize[0]);
     SDL_UpdateYUVTexture(texture, &rect, data[0], linesize[0],
                          data[1], linesize[1],
                          data[2], linesize[2]);
@@ -105,6 +110,7 @@ void SDLActivity::onRender()
 {
     SDL_RenderClear(render);
     SDL_RenderCopy(render, texture, NULL, &rect);
+    SDL_RenderCopy(render, texture, NULL, &rect2);
     SDL_RenderPresent(render);
     
     SDL_Delay(30);

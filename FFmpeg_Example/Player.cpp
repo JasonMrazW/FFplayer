@@ -41,6 +41,10 @@ void Player::init()
         printf("Could't find stream info");
         return;
     }
+    AVDictionaryEntry *m = NULL;
+    m=av_dict_get(formatCtx->metadata,"author",m,0);
+    
+    //printf("metedata %s \r\n", m->key);
     
     // 5. find decoder
     videoIndex = -1;
@@ -121,6 +125,7 @@ std::tuple<uint8_t** ,int*> Player::readFrame()
             if (get_pic > 0) {
                 sws_scale(image_sws_context, frame->data, frame->linesize, 0, codecCtx->height, frameYUV->data, frameYUV->linesize);
                 result = std::make_tuple(frameYUV->data, frameYUV->linesize);
+                printf("%d", frame->pict_type);
             } else
             {
                 printf("get pic failed.\r\n");

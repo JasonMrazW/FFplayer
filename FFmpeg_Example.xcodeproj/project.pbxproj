@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		C0A00B83256370CB00909EA5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0A00B82256370CB00909EA5 /* main.cpp */; };
+		C0A00B952563722B00909EA5 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00B8E256371ED00909EA5 /* libavcodec.a */; };
+		C0A00B962563722B00909EA5 /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00B94256371ED00909EA5 /* libavdevice.a */; };
+		C0A00B972563722B00909EA5 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00B91256371ED00909EA5 /* libavfilter.a */; };
+		C0A00B982563722B00909EA5 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00B93256371ED00909EA5 /* libavformat.a */; };
+		C0A00B992563722B00909EA5 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00B90256371ED00909EA5 /* libavutil.a */; };
+		C0A00B9A2563722B00909EA5 /* libpostproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00B8D256371ED00909EA5 /* libpostproc.a */; };
+		C0A00B9B2563722B00909EA5 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00B92256371ED00909EA5 /* libswresample.a */; };
+		C0A00B9C2563722B00909EA5 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00B8F256371ED00909EA5 /* libswscale.a */; };
+		C0A00BC42563C91600909EA5 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00BC32563C91600909EA5 /* SDL2.framework */; };
+		C0A00BCF25640DDB00909EA5 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0A00BCD25640DDA00909EA5 /* Player.cpp */; };
+		C0A00BD82564BEF500909EA5 /* SDLActivity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0A00BD62564BEF500909EA5 /* SDLActivity.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +36,22 @@
 /* Begin PBXFileReference section */
 		C0A00B7F256370CB00909EA5 /* FFmpeg_Example */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FFmpeg_Example; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A00B82256370CB00909EA5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C0A00B8B256371AA00909EA5 /* 4.3.1-with-options_6 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "4.3.1-with-options_6"; path = "../../../../../usr/local/Cellar/ffmpeg/4.3.1-with-options_6"; sourceTree = "<group>"; };
+		C0A00B8C256371C500909EA5 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lib; path = "../../../../../usr/local/Cellar/ffmpeg/4.3.1-with-options_6/lib"; sourceTree = "<group>"; };
+		C0A00B8D256371ED00909EA5 /* libpostproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpostproc.a; path = "../../../../../usr/local/Cellar/ffmpeg/4.3.1-with-options_6/lib/libpostproc.a"; sourceTree = "<group>"; };
+		C0A00B8E256371ED00909EA5 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = "../../../../../usr/local/Cellar/ffmpeg/4.3.1-with-options_6/lib/libavcodec.a"; sourceTree = "<group>"; };
+		C0A00B8F256371ED00909EA5 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = "../../../../../usr/local/Cellar/ffmpeg/4.3.1-with-options_6/lib/libswscale.a"; sourceTree = "<group>"; };
+		C0A00B90256371ED00909EA5 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = "../../../../../usr/local/Cellar/ffmpeg/4.3.1-with-options_6/lib/libavutil.a"; sourceTree = "<group>"; };
+		C0A00B91256371ED00909EA5 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavfilter.a; path = "../../../../../usr/local/Cellar/ffmpeg/4.3.1-with-options_6/lib/libavfilter.a"; sourceTree = "<group>"; };
+		C0A00B92256371ED00909EA5 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = "../../../../../usr/local/Cellar/ffmpeg/4.3.1-with-options_6/lib/libswresample.a"; sourceTree = "<group>"; };
+		C0A00B93256371ED00909EA5 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = "../../../../../usr/local/Cellar/ffmpeg/4.3.1-with-options_6/lib/libavformat.a"; sourceTree = "<group>"; };
+		C0A00B94256371ED00909EA5 /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavdevice.a; path = "../../../../../usr/local/Cellar/ffmpeg/4.3.1-with-options_6/lib/libavdevice.a"; sourceTree = "<group>"; };
+		C0A00BC32563C91600909EA5 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2.framework; sourceTree = "<group>"; };
+		C0A00BCB2563E65E00909EA5 /* bigbuckbunny_480x272.h265 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bigbuckbunny_480x272.h265; sourceTree = "<group>"; };
+		C0A00BCD25640DDA00909EA5 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		C0A00BCE25640DDA00909EA5 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
+		C0A00BD62564BEF500909EA5 /* SDLActivity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SDLActivity.cpp; sourceTree = "<group>"; };
+		C0A00BD72564BEF500909EA5 /* SDLActivity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SDLActivity.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +59,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A00BC42563C91600909EA5 /* SDL2.framework in Frameworks */,
+				C0A00B992563722B00909EA5 /* libavutil.a in Frameworks */,
+				C0A00B9A2563722B00909EA5 /* libpostproc.a in Frameworks */,
+				C0A00B972563722B00909EA5 /* libavfilter.a in Frameworks */,
+				C0A00B962563722B00909EA5 /* libavdevice.a in Frameworks */,
+				C0A00B9C2563722B00909EA5 /* libswscale.a in Frameworks */,
+				C0A00B952563722B00909EA5 /* libavcodec.a in Frameworks */,
+				C0A00B9B2563722B00909EA5 /* libswresample.a in Frameworks */,
+				C0A00B982563722B00909EA5 /* libavformat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +79,7 @@
 			children = (
 				C0A00B81256370CB00909EA5 /* FFmpeg_Example */,
 				C0A00B80256370CB00909EA5 /* Products */,
+				C0A00B8A256371AA00909EA5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +94,32 @@
 		C0A00B81256370CB00909EA5 /* FFmpeg_Example */ = {
 			isa = PBXGroup;
 			children = (
+				C0A00BCB2563E65E00909EA5 /* bigbuckbunny_480x272.h265 */,
 				C0A00B82256370CB00909EA5 /* main.cpp */,
+				C0A00BCD25640DDA00909EA5 /* Player.cpp */,
+				C0A00BCE25640DDA00909EA5 /* Player.hpp */,
+				C0A00BD62564BEF500909EA5 /* SDLActivity.cpp */,
+				C0A00BD72564BEF500909EA5 /* SDLActivity.hpp */,
 			);
 			path = FFmpeg_Example;
+			sourceTree = "<group>";
+		};
+		C0A00B8A256371AA00909EA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0A00BC32563C91600909EA5 /* SDL2.framework */,
+				C0A00B8E256371ED00909EA5 /* libavcodec.a */,
+				C0A00B94256371ED00909EA5 /* libavdevice.a */,
+				C0A00B91256371ED00909EA5 /* libavfilter.a */,
+				C0A00B93256371ED00909EA5 /* libavformat.a */,
+				C0A00B90256371ED00909EA5 /* libavutil.a */,
+				C0A00B8D256371ED00909EA5 /* libpostproc.a */,
+				C0A00B92256371ED00909EA5 /* libswresample.a */,
+				C0A00B8F256371ED00909EA5 /* libswscale.a */,
+				C0A00B8C256371C500909EA5 /* lib */,
+				C0A00B8B256371AA00909EA5 /* 4.3.1-with-options_6 */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +178,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A00BCF25640DDB00909EA5 /* Player.cpp in Sources */,
 				C0A00B83256370CB00909EA5 /* main.cpp in Sources */,
+				C0A00BD82564BEF500909EA5 /* SDLActivity.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +302,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/Cellar/ffmpeg/4.3.1-with-options_6/include",
+					/Users/bo/coding/03_av/FFmpeg_Example/SDL2.framework/Headers,
+				);
+				LIBRARY_SEARCH_PATHS = "/usr/local/Cellar/ffmpeg/4.3.1-with-options_6/lib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -248,6 +319,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = "/usr/local/Cellar/ffmpeg/4.3.1-with-options_6/include";
+				LIBRARY_SEARCH_PATHS = "/usr/local/Cellar/ffmpeg/4.3.1-with-options_6/lib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -7,8 +7,15 @@
 
 #include <iostream>
 
+extern "C" {
+#include <libavformat/avformat.h>
+}
+#include <SDL2/SDL.h>
+#include "Player.hpp"
+
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    Player player;
+    player.init();
+    player.start();
     return 0;
 }

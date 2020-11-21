@@ -80,6 +80,9 @@ void FlvPlayer::init(const char *url)
     
     while (av_read_frame(pFormatContext, avPacket) >= 0) {
         cout << "av_read_frame" << endl;
+        if (avPacket->stream_index != video_index) {
+            continue;
+        }
         ret = avcodec_send_packet(codecContext, avPacket);
         av_packet_unref(avPacket);
         if (ret < 0) {
@@ -93,7 +96,7 @@ void FlvPlayer::init(const char *url)
                 cout << "decode frame end. "<< av_err2str(ret) <<endl;
                 continue;
             }
-            cout << "pts：" << avFrame->data[0] << endl;
+            cout << "pts：" << avFrame->key_frame << endl;
         }
     }
 }

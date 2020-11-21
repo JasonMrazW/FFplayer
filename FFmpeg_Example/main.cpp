@@ -14,11 +14,11 @@ int main(int argc, const char * argv[]) {
     
    const char *filePath = "./video/ret.flv";
     //char *filePath = "./video/bigbuckbunny_480x272.h265";
-//    FlvPlayer flvPlayer;
-//    flvPlayer.init(filePath);
+    FlvPlayer flvPlayer;
+    flvPlayer.init(filePath);
 //    //SDL Player
-    Player player;
-    player.init(filePath);
-    player.start();
+//    Player player;
+//    player.init(filePath);
+//    player.start();
     return 0;
 }

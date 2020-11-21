@@ -7,15 +7,18 @@
 
 #include <iostream>
 
-extern "C" {
-#include <libavformat/avformat.h>
-}
-#include <SDL2/SDL.h>
 #include "Player.hpp"
+#include "FlvPlayer.hpp"
 
 int main(int argc, const char * argv[]) {
+    
+   const char *filePath = "./video/ret.flv";
+    //char *filePath = "./video/bigbuckbunny_480x272.h265";
+//    FlvPlayer flvPlayer;
+//    flvPlayer.init(filePath);
+//    //SDL Player
     Player player;
-    player.init();
+    player.init(filePath);
     player.start();
     return 0;
 }

@@ -16,9 +16,10 @@
 		C0A00B9A2563722B00909EA5 /* libpostproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00B8D256371ED00909EA5 /* libpostproc.a */; };
 		C0A00B9B2563722B00909EA5 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00B92256371ED00909EA5 /* libswresample.a */; };
 		C0A00B9C2563722B00909EA5 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00B8F256371ED00909EA5 /* libswscale.a */; };
-		C0A00BC42563C91600909EA5 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00BC32563C91600909EA5 /* SDL2.framework */; };
 		C0A00BCF25640DDB00909EA5 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0A00BCD25640DDA00909EA5 /* Player.cpp */; };
 		C0A00BD82564BEF500909EA5 /* SDLActivity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0A00BD62564BEF500909EA5 /* SDLActivity.cpp */; };
+		C0A00BE92568FCFF00909EA5 /* FlvPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0A00BE72568FCFF00909EA5 /* FlvPlayer.cpp */; };
+		C0A00BED25692D3700909EA5 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A00BC32563C91600909EA5 /* SDL2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,9 @@
 		C0A00BCE25640DDA00909EA5 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 		C0A00BD62564BEF500909EA5 /* SDLActivity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SDLActivity.cpp; sourceTree = "<group>"; };
 		C0A00BD72564BEF500909EA5 /* SDLActivity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SDLActivity.hpp; sourceTree = "<group>"; };
+		C0A00BE32568A73100909EA5 /* ret.flv */ = {isa = PBXFileReference; lastKnownFileType = file; path = ret.flv; sourceTree = SOURCE_ROOT; };
+		C0A00BE72568FCFF00909EA5 /* FlvPlayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FlvPlayer.cpp; sourceTree = "<group>"; };
+		C0A00BE82568FCFF00909EA5 /* FlvPlayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FlvPlayer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0A00BC42563C91600909EA5 /* SDL2.framework in Frameworks */,
+				C0A00BED25692D3700909EA5 /* SDL2.framework in Frameworks */,
 				C0A00B992563722B00909EA5 /* libavutil.a in Frameworks */,
 				C0A00B9A2563722B00909EA5 /* libpostproc.a in Frameworks */,
 				C0A00B972563722B00909EA5 /* libavfilter.a in Frameworks */,
@@ -94,7 +98,8 @@
 		C0A00B81256370CB00909EA5 /* FFmpeg_Example */ = {
 			isa = PBXGroup;
 			children = (
-				C0A00BCB2563E65E00909EA5 /* bigbuckbunny_480x272.h265 */,
+				C0A00BE62568FBD900909EA5 /* flv_decoder */,
+				C0A00BDF25689BA900909EA5 /* video */,
 				C0A00B82256370CB00909EA5 /* main.cpp */,
 				C0A00BCD25640DDA00909EA5 /* Player.cpp */,
 				C0A00BCE25640DDA00909EA5 /* Player.hpp */,
@@ -120,6 +125,24 @@
 				C0A00B8B256371AA00909EA5 /* 4.3.1-with-options_6 */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0A00BDF25689BA900909EA5 /* video */ = {
+			isa = PBXGroup;
+			children = (
+				C0A00BE32568A73100909EA5 /* ret.flv */,
+				C0A00BCB2563E65E00909EA5 /* bigbuckbunny_480x272.h265 */,
+			);
+			path = video;
+			sourceTree = "<group>";
+		};
+		C0A00BE62568FBD900909EA5 /* flv_decoder */ = {
+			isa = PBXGroup;
+			children = (
+				C0A00BE72568FCFF00909EA5 /* FlvPlayer.cpp */,
+				C0A00BE82568FCFF00909EA5 /* FlvPlayer.hpp */,
+			);
+			path = flv_decoder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +171,9 @@
 		C0A00B77256370CB00909EA5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					C0A00B7E256370CB00909EA5 = {
@@ -181,6 +207,7 @@
 				C0A00BCF25640DDB00909EA5 /* Player.cpp in Sources */,
 				C0A00B83256370CB00909EA5 /* main.cpp in Sources */,
 				C0A00BD82564BEF500909EA5 /* SDLActivity.cpp in Sources */,
+				C0A00BE92568FCFF00909EA5 /* FlvPlayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

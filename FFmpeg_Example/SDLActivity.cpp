@@ -8,7 +8,7 @@
 #include "SDLActivity.hpp"
 
 SDLActivity::SDLActivity(int w, int h):width(w),height(h) {
-    
+    initSDL();
 }
 
 SDLActivity::~SDLActivity()
@@ -113,6 +113,7 @@ void SDLActivity::onRender()
     SDL_RenderCopy(render, texture, NULL, &rect2);
     SDL_RenderPresent(render);
     
+    // fps control
     SDL_Delay(30);
 }
 

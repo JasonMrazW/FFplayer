@@ -29,7 +29,7 @@ public:
     Player();
     ~Player();
     
-    void init();
+    void init(const char *filePath);
     
     void start();
     
@@ -45,7 +45,6 @@ private:
     
     //SDL
     SDLActivity *activity;
-    
     
     std::tuple<uint8_t** ,int*> readFrame();
     

@@ -18,7 +18,7 @@ Player::~Player()
 }
 
 //init ffmpeg
-void Player::init()
+void Player::init(const char *filePath)
 {
     //1. av register
     av_register_all();
@@ -27,7 +27,7 @@ void Player::init()
     formatCtx = avformat_alloc_context();
     
     //3. open file
-    const char *filePath = "bigbuckbunny_480x272.h265";
+    
     int result = avformat_open_input(&formatCtx, filePath, NULL, NULL);
     if (result != 0) {
         printf("Could't open input file %s && %d", filePath, result);
@@ -57,6 +57,7 @@ void Player::init()
     
     if (videoIndex == -1) {
         printf("Could't find video info.");
+        return;
     }
     
     codecCtx = formatCtx->streams[videoIndex]->codec;
@@ -117,20 +118,32 @@ std::tuple<uint8_t** ,int*> Player::readFrame()
             break;
         }
         if (packet->stream_index == videoIndex) {
-            ret = avcodec_decode_video2(codecCtx, frame, &get_pic, packet);
+//            ret = avcodec_decode_video2(codecCtx, frame, &get_pic, packet);
+            ret = avcodec_send_packet(codecCtx, packet);
             if (ret < 0) {
                 printf("decode failed.\r\n");
                 return result;
             }
-            if (get_pic > 0) {
+            while (ret >= 0) {
+                ret = avcodec_receive_frame(codecCtx, frame);
+                if (ret < 0 || ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
+                    printf("decode frame ended. %s\r\n", av_err2str(ret));
+                    break;
+                }
                 sws_scale(image_sws_context, frame->data, frame->linesize, 0, codecCtx->height, frameYUV->data, frameYUV->linesize);
                 result = std::make_tuple(frameYUV->data, frameYUV->linesize);
-                printf("%d", frame->pict_type);
-            } else
-            {
-                printf("get pic failed.\r\n");
+                return result;
             }
-            break;
+//            if (get_pic >= 0) {
+//                sws_scale(image_sws_context, frame->data, frame->linesize, 0, codecCtx->height, frameYUV->data, frameYUV->linesize);
+//                result = std::make_tuple(frameYUV->data, frameYUV->linesize);
+//                printf("%d\r\n", frame->pts);
+//                //printf("%d", frame->pict_type);
+//            } else
+//            {
+//                printf("get pic failed %d.\r\n", get_pic);
+//            }
+            //break;
         }
         av_free_packet(packet);
     }
@@ -148,6 +161,3 @@ void Player::onCleanUp()
     avcodec_close(codecCtx);
     avformat_close_input(&formatCtx);
 }
-
-
-

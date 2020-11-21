@@ -22,5 +22,7 @@ public:
     ~FlvPlayer();
     
     void init(const char *url);
+private:
+    void decode(AVCodecContext *codecContext, AVFormatContext *pFormatContext, int video_index);
 };
 #endif /* FlvPlayer_hpp */

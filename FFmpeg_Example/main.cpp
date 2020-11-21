@@ -17,7 +17,7 @@ int main(int argc, const char * argv[]) {
     FlvPlayer flvPlayer;
     flvPlayer.init(filePath);
 //    //SDL Player
-//    Player player;
+    Player player;
 //    player.init(filePath);
 //    player.start();
     return 0;

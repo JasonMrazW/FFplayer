@@ -19,6 +19,8 @@ FlvPlayer::~FlvPlayer()
     
 }
 
+
+
 void FlvPlayer::init(const char *url)
 {
     //1. init format
@@ -44,6 +46,7 @@ void FlvPlayer::init(const char *url)
     }
     
     printf("find %d stream info.",pFormatContext->nb_streams);
+    // 3. init video codec info
     int video_index = -1;
     for (int i = 0;i < pFormatContext->nb_streams;i++) {
         if (pFormatContext->streams[i]->codecpar->codec_type == AVMEDIA_TYPE_VIDEO) {
@@ -57,6 +60,7 @@ void FlvPlayer::init(const char *url)
         return;
     }
     
+    // 4. init codec
     AVStream *videoStream = pFormatContext->streams[video_index];
     AVCodec *videoCodec = avcodec_find_decoder(videoStream->codecpar->codec_id);
     
@@ -75,25 +79,35 @@ void FlvPlayer::init(const char *url)
     }
     cout << "bit_rate:" << codecContext->bit_rate << endl;
     
+    decode(codecContext, pFormatContext, video_index);
+}
+
+void FlvPlayer::decode(AVCodecContext *codecContext, AVFormatContext *pFormatContext, int video_index) {
+    int ret = -1;
     AVFrame *avFrame = av_frame_alloc();
     AVPacket *avPacket = av_packet_alloc();
     
-    while (av_read_frame(pFormatContext, avPacket) >= 0) {
-        cout << "av_read_frame" << endl;
+    while (true) {
+        ret = av_read_frame(pFormatContext, avPacket);
+        if (ret < 0) {
+            cout << "read frame failed." << av_err2str(ret) <<endl;
+            break;
+        }
+        //cout << "av_read_frame" << endl;
         if (avPacket->stream_index != video_index) {
             continue;
         }
         ret = avcodec_send_packet(codecContext, avPacket);
-        av_packet_unref(avPacket);
+        
         if (ret < 0) {
-            cout << "send packet failed." << endl;
-            return;
+            cout << "send packet failed." << av_err2str(ret) <<endl;
+            continue;
         }
         
         while(ret >= 0) {
             ret = avcodec_receive_frame(codecContext, avFrame);
             if (ret < 0 || ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
-                cout << "decode frame end. "<< av_err2str(ret) <<endl;
+                //cout << "decode frame end. "<< av_err2str(ret) <<endl;
                 continue;
             }
             cout << "pts：" << avFrame->key_frame << endl;

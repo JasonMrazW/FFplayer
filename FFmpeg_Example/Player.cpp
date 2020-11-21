@@ -127,7 +127,7 @@ std::tuple<uint8_t** ,int*> Player::readFrame()
             while (ret >= 0) {
                 ret = avcodec_receive_frame(codecCtx, frame);
                 if (ret < 0 || ret == AVERROR(EAGAIN) || ret == AVERROR_EOF) {
-                    printf("decode frame ended. %s\r\n", av_err2str(ret));
+                    //printf("decode frame ended. %s\r\n", av_err2str(ret));
                     break;
                 }
                 sws_scale(image_sws_context, frame->data, frame->linesize, 0, codecCtx->height, frameYUV->data, frameYUV->linesize);
